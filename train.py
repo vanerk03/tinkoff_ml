@@ -25,7 +25,7 @@ class Model:
             self.fit_directory(path)
 
         with open("model.pkl", "rb") as md:
-            self.model: BaggingRegressor = dill.load(md)
+            self.__model: BaggingRegressor = dill.load(md)
 
     def fit_directory(self, path: str) -> None:
         for r, _, f in os.walk(path):
@@ -82,7 +82,7 @@ class Model:
                 y = [np.concatenate([vec_context, self.__vectors.wv[word]])
                      for word in word_list]
 
-                prediction = self.model.predict(y)
+                prediction = self.__model.predict(y)
                 new_word_idx = max(range(len(prediction)),
                                    key=lambda i: prediction[i])
                 new_word = word_list[new_word_idx]
