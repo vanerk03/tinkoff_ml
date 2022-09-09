@@ -62,6 +62,9 @@ class Model:
             sentence = sents[-1]
             res = sents[:-1]
 
+            if len(sentence) < self.n:
+                sentence.extend(list(random.choice(list(self.__ngramm.keys()))))
+
         q: deque[str] = deque(sentence[-self.n:])
 
         while True:
