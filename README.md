@@ -9,10 +9,10 @@
 
 ## Пример сгенерированной последовательности:
 ### Параметры
-`
+```
 prefix = "I love"
 length = 10
 input-dir: a few english Novels
-`
+```
 ### Вывод
 `I love it when a girl's really a pretty childish.`
